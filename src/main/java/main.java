@@ -1,25 +1,18 @@
-import org.apache.commons.dbcp2.BasicDataSource;
-import java.sql.*;
-import java.util.*;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 public class main {
-
-    private static BasicDataSource dataSource;
-    private static String url = "CODERKIDS@COT-CIS3365-03.cougarnet.uh.edu";
-    private static String user = "elhayne2";
-    private static String pass = "Honey!1996";
-
-    public static void main(String[] args) throws SQLException {
-
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         System.out.println("Hello world!");
 
-        dataSource = new BasicDataSource();
+        DBConnectionHandler d = new DBConnectionHandler();
 
-        dataSource.setUsername(user);
-        dataSource.setPassword(pass);
-        dataSource.setUrl(url);
+        d.getConnection();
 
-        Connection connection = dataSource.getConnection();
 
     }
 }
+

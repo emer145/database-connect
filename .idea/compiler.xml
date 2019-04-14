@@ -9,5 +9,8 @@
         <module name="database-connect" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="database-connect" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

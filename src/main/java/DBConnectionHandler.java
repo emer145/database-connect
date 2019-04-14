@@ -3,25 +3,28 @@ import java.sql.*;
 public class DBConnectionHandler {
 
     private static Connection conn;
-    private static String url = "CODERKIDS@COT-CIS3365-03.cougarnet.uh.edu";
-    private static String user = "elhayne2";
-    private static String pass = "Honey!1996";
+  //  private static String url = "CODERKIDS@COT-CIS3365-03.cougarnet.uh.edu";
+    private static String url = "jdbc:sqlserver://COT-CIS3365-03.cougarnet.uh.edu;database=CODERKIDS;";
+
+    private static String user = "mason";
+    private static String pass = "mason1234";
 
 
-    private DBConnectionHandler() {
+    public DBConnectionHandler() {
     }
 
 
     private static Connection connect() throws SQLException {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            //Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.microsoft.sqlserver").newInstance();
 
-        } catch (ClassNotFoundException cnfe) {
-            System.err.println("Error: " + cnfe.getMessage());
-        } catch (InstantiationException ie) {
-            System.err.println("Error: " + ie.getMessage());
-        } catch (IllegalAccessException iae) {
-            System.err.println("Error: " + iae.getMessage());
+        } catch (ClassNotFoundException a) {
+            System.err.println("Error: " + a.getMessage());
+        } catch (InstantiationException b) {
+            System.err.println("Error: " + b.getMessage());
+        } catch (IllegalAccessException c) {
+            System.err.println("Error: " + c.getMessage());
         }
 
         conn = DriverManager.getConnection(url, user, pass);
